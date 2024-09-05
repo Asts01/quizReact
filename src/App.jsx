@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import { database } from './config';
 import { collection, addDoc, getDocs } from 'firebase/firestore';
-import { data } from 'autoprefixer';
 
 function App() {
   const [quizName, setQuizName] = useState("");
@@ -11,9 +10,6 @@ function App() {
   const [option2, setOption2] = useState("");
   const [option3, setOption3] = useState("");
   const [allQues, setAllQues] = useState([]); // List of all questions for the quiz
-  //all quizNames
-  //create a new collection storing list of names of all the quizzes
-  const [quizNames,setQuizNames]=useState([]);
 
   const addQuiz = async () => {
     const newQuestion = {
@@ -26,21 +22,19 @@ function App() {
     };
 
     if (quizName) {
-      // const questionNameRef=collection(database,'quizNames');
       const quizRef = collection(database, `quizzes/${quizName}/questions`);
-      //add quiz-name to the collection
-      // await addDoc(questionNameRef,quizName);
+
       // Add the new question to the sub-collection
       await addDoc(quizRef, newQuestion);
       console.log("Question added to quiz");
 
-      // Clear the input-feild after adding of a question
+      // Clear inputs after adding
       setQuestion("");
       setOption1("");
       setOption2("");
       setOption3("");
 
-      // Fetch updated list of questions after adding a question to be rendred at front-end
+      // Fetch updated list of questions after adding
       getQuizQuestions();
     }
   };
@@ -62,36 +56,10 @@ function App() {
 
   // Automatically fetch questions when the quiz name changes
   useEffect(() => {
-    getAllQuizNames();
     if (quizName) {
       getQuizQuestions();
     }
   }, [quizName]);
-
-  const getAllQuizNames = async () => {
-    try {
-      const quizNameRef = collection(database, `quizzes`);
-      // const quizNameRef = collection(database, `quizzes/Q-1`);
-      const querySnapshot = await getDocs(quizNameRef);
-      console.log(quizNameRef);
-      console.log(querySnapshot);
-      // Extract quiz names from the documents
-      const quizzes = querySnapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-  
-      if (quizzes.length > 0) {
-        setQuizNames(quizzes); // Update the state with the list of quiz names
-        console.log(quizNames);
-      } else {
-        console.log("No quizzes found");
-      }
-    } catch (error) {
-      console.error("Error fetching quiz names: ", error);
-    }
-    console.log(quizNames);
-  };
 
   return (
     <>
@@ -127,32 +95,12 @@ function App() {
         />
         <button onClick={addQuiz}>Add Question</button>
 
-        <div>
-          {/* <button onClick={getAllQuizNames}>GetAllQuizNames</button> */}
-          <h2>Select the pre-existing quiz</h2>
-          <button onClick={getAllQuizNames}>getAllQuizNames</button>
-          <ul>
-            {quizNames.length > 0 ? (
-              quizNames.map((quiz) => (
-                <li key={quiz.id}>
-                  {/* Display quiz name or ID */}
-                  {quiz.id}
-                </li>
-              ))
-            ) : (
-              <p>No quizzes found</p>
-            )}
-          </ul>
-        </div>
-        {/* render all the quiz-names and set the current-quiz based upon the selection */}
-
-
         {/* Render the list of questions */}
         <div>
           {allQues.length > 0 ? (
             allQues.map((q) => (
               <div key={q.id} className='question'>
-                <h3>{'Q-'}{q.question}</h3>
+                <h3>{q.question}</h3>
                 <ul>
                   <li>{q.options.o1}</li>
                   <li>{q.options.o2}</li>
@@ -170,5 +118,3 @@ function App() {
 }
 
 export default App;
-
-
