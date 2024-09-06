@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { database } from '../../config';
-import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom'
 
 function SelectQuizName() {
     const [quizNames, setQuizNames] = useState([]);
