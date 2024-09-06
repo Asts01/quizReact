@@ -33,7 +33,7 @@ function SelectQuizName() {
             {loading ? (
                 <p>Fetching Quiz Data...</p>
             ) : (
-                <div className="flex gap-4 w-full justify-center" >
+                <div className="md:flex gap-4 w-full justify-center" >
                     {quizNames?.length > 0 ? (
                         quizNames?.map((quiz) => (
                             <NavLink 
@@ -42,7 +42,7 @@ function SelectQuizName() {
                                 state={{ quizName: quiz.name}}  // Pass the quiz name correctly using state
                             >
                                 <button
-                                    className="bg-[#50B498] text-white py-2 px-4 rounded-lg hover:bg-[#468585] focus:outline-none focus:ring-2 focus:ring-[#9CDBA6] focus:ring-opacity-50 transition-all duration-200"
+                                    className="bg-[#50B498] text-white py-2 px-4 rounded-lg hover:bg-[#468585] focus:outline-none focus:ring-2 focus:ring-[#9CDBA6] focus:ring-opacity-50 transition-all duration-200 m-1"
                                 >
                                     {quiz.name} {/* Assuming 'name' is the quiz name field */}
                                 </button>
