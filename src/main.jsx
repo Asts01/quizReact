@@ -11,9 +11,10 @@ import AddExistingQuiz from './components/add/AddExistingQuiz.jsx';
 import ShowAllQuestions from './components/add/ShowAllQuestions.jsx';
 import { Provider } from 'react-redux';
 import store from './components/store/store.jsx';
-import SelectQuizName from './components/play/SelectQuizName.jsx';
+
 import PlayQuiz from './components/play/PlayQuiz.jsx';
 import FinishPage from './FinishPage.jsx';
+import SelectQuizName from './components/play/SelectQuizName.jsx';
 
 const router = createBrowserRouter([
   {
@@ -61,7 +62,7 @@ createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <StrictMode>
       <RouterProvider router={router} />
-        <App />
+        {/* <App /> */}
     </StrictMode>
   </Provider>
   
