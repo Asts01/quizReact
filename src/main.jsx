@@ -11,7 +11,7 @@ import AddExistingQuiz from './components/add/AddExistingQuiz.jsx';
 import ShowAllQuestions from './components/add/ShowAllQuestions.jsx';
 import { Provider } from 'react-redux';
 import store from './components/store/store.jsx';
-import SelectQuizName from './components/play/selectQuizName.jsx';
+import SelectQuizName from './components/play/SelectQuizName.jsx';
 import PlayQuiz from './components/play/PlayQuiz.jsx';
 import FinishPage from './FinishPage.jsx';
 
