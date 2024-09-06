@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
-import { database } from '../config';
+import { database } from '../../config';
 import { NavLink } from 'react-router-dom';
-
+//show list of all the quiz-names
 function AddExistingQuiz() {
     const [quizNames, setQuizNames] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -29,7 +29,7 @@ function AddExistingQuiz() {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-[#DEF9C4] py-10 px-5">
-            <h2 className="text-2xl font-semibold text-violet-500 mb-6">Select the Quiz Name</h2>
+            <h2 className="text-2xl font-semibold text-violet-500 mb-6">Select the Quiz Name & Add Questions Furthur</h2>
             {loading ? (
                 <p>Fetching Quiz Data...</p>
             ) : (

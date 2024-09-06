@@ -4,13 +4,16 @@ import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom';
 import App from './App.jsx';
 import './index.css';
 import LandingPage from './components/LandingPage.jsx';
-import AddQuestion from './components/AddQuestion.jsx';
+import AddQuestion from './components/add/AddQuestion.jsx';
 import Layout from './components/Layout.jsx';
-import AddNewQuiz from './components/AddNewQuiz.jsx';
-import AddExistingQuiz from './components/AddExistingQuiz.jsx';
-import ShowAllQuestions from './components/ShowAllQuestions.jsx';
+import AddNewQuiz from './components/add/AddNewQuiz.jsx';
+import AddExistingQuiz from './components/add/AddExistingQuiz.jsx';
+import ShowAllQuestions from './components/add/ShowAllQuestions.jsx';
 import { Provider } from 'react-redux';
 import store from './components/store/store.jsx';
+import SelectQuizName from './components/play/selectQuizName.jsx';
+import PlayQuiz from './components/play/PlayQuiz.jsx';
+import FinishPage from './FinishPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -37,6 +40,18 @@ const router = createBrowserRouter([
       {
         path:"/showAllQuestions",
         element:<ShowAllQuestions/>
+      },
+      {
+        path:"/selectQuizNameForPlay",
+        element:<SelectQuizName/>
+      },
+      {
+        path:"/playQuiz",
+        element:<PlayQuiz/>
+      },
+      {
+        path:"/finishPage",
+        element:<FinishPage/>
       }
     ]
   }
