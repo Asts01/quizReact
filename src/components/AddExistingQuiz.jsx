@@ -48,6 +48,7 @@ function AddExistingQuiz() {
                 </button>
             </NavLink>
         ))
+        
     ) : (
         <p>No quiz names found.</p>
     )}
@@ -55,6 +56,7 @@ function AddExistingQuiz() {
 
             )}
         </div>
+        
     );
 }
 
