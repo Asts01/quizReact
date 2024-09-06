@@ -34,8 +34,8 @@ function SelectQuizName() {
                 <p>Fetching Quiz Data...</p>
             ) : (
                 <div className="flex gap-4 w-full justify-center" >
-                    {quizNames.length > 0 ? (
-                        quizNames.map((quiz) => (
+                    {quizNames?.length > 0 ? (
+                        quizNames?.map((quiz) => (
                             <NavLink 
                                 key={quiz.id} 
                                 to="/playQuiz" 
