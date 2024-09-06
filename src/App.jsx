@@ -1,3 +1,5 @@
+
+
 import { useEffect, useState } from 'react';
 import './App.css';
 import { database } from './config';
@@ -111,22 +113,7 @@ function App() {
   return (
     <>
       {/* select pvsly existing quiz */}
-      <div className='bg-slate-200 p-3 will-change-auto'>
-        <h2>Select A Quiz-Name</h2>
-        {quizNames.length > 0 ? (
-          <ul className='flex bg-slate-300 justify-center'>
-          {quizNames.map((q) => (
-            <div key={q.id} className='bg-slate-400 rounded-md p-1 m-2 shadow-md'>
-              <button onClick={()=>setNewQuizName(q.name)}>
-                <li>{q.name}</li>
-              </button>
-            </div>
-          ))}
-          </ul>
-        ) : (
-          <p>No Quiz Names Exist</p>
-        )}
-        </div>
+      
       {/* add new quiz functiolty */}
       <div className='flex flex-col justify-center items-center gap-3'>
         <input
@@ -190,3 +177,4 @@ function App() {
 }
 
 export default App;
+
