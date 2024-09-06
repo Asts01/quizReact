@@ -15,7 +15,7 @@ function LandingPage() {
       <div className="mb-8 bg-slate-300 rounded-md">
         {
             <Link
-            to="/addNewQuiz">
+            to="/addExistingQuiz">
                 <button className="text-4xl font-bold text-blue-600 p-4 rounded-md">Add Q Into Existing Quiz</button>
             </Link>
         }

@@ -8,6 +8,7 @@ export const QuizSlice=createSlice({
     reducers:{
         //leke aao quizName aur set kr do state
         setCurrentQuizName:(state,action)=>{
+            console.log("data received from AddNewQuiz page");
             console.log(action.payload);
             state.currentQuizName=action.payload;
         }
